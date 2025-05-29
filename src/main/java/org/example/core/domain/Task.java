@@ -1,4 +1,4 @@
-package org.example;
+package org.example.core.domain;
 
 public final class Task {
     private final long id;

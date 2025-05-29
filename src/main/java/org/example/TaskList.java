@@ -1,9 +1,7 @@
 package org.example;
 
-import org.example.core.Command;
 import org.example.core.CommandExecutor;
-import org.example.core.CommandFactory;
-import org.example.core.CommandPallet;
+import org.example.core.domain.Task;
 
 import java.io.BufferedReader;
 import java.io.IOException;

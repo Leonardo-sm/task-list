@@ -1,6 +1,6 @@
 package org.example.commands;
 
-import org.example.Task;
+import org.example.core.domain.Task;
 import org.example.core.Command;
 import org.example.core.TaskState;
 

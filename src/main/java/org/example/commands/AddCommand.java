@@ -1,13 +1,14 @@
 package org.example.commands;
 
-import org.example.Task;
+import org.example.core.annotations.Commands;
+import org.example.core.domain.Task;
 import org.example.core.Command;
 import org.example.core.TaskState;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
+@Commands
 public class AddCommand implements Command {
     private final String[] args;
 

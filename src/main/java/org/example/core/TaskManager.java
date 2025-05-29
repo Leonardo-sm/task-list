@@ -1,6 +1,6 @@
 package org.example.core;
 
-import org.example.Task;
+import org.example.core.domain.Task;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

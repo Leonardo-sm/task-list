@@ -1,5 +1,7 @@
 package org.example.core;
 
+import org.example.helpers.ErrorMessage;
+
 import java.util.List;
 
 public class CommandExecutor {
@@ -8,7 +10,7 @@ public class CommandExecutor {
                 .flatMap(cmdEnum -> CommandFactory.createCommand(cmdEnum, List.of(args)))
                 .ifPresentOrElse(
                         Command::execute,
-                        () -> System.out.println("Comando inválido ou parâmetros incorretos.")
+                        () -> System.out.print(ErrorMessage.getMessage(commandName, args))
                 );
     }
 }
