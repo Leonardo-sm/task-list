@@ -1,8 +1,8 @@
 package org.example.commands;
 
-import org.example.core.Command;
+import org.example.core.domain.CommandBase;
 
-public class HelpCommand implements Command {
+public class HelpICommand extends CommandBase {
     @Override
     public void execute() {
         System.out.println("Commands:");

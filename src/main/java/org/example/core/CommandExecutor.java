@@ -1,5 +1,6 @@
 package org.example.core;
 
+import org.example.core.domain.ICommand;
 import org.example.helpers.ErrorMessage;
 
 import java.util.List;
@@ -9,7 +10,7 @@ public class CommandExecutor {
         CommandPallet.fromName(commandName)
                 .flatMap(cmdEnum -> CommandFactory.createCommand(cmdEnum, List.of(args)))
                 .ifPresentOrElse(
-                        Command::execute,
+                        ICommand::execute,
                         () -> System.out.print(ErrorMessage.getMessage(commandName, args))
                 );
     }

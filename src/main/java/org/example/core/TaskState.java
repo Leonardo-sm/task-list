@@ -1,16 +1,21 @@
 package org.example.core;
 
-import org.example.core.domain.Task;
+import org.example.core.domain.TaskList;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class TaskState {
-    public static final Map<String, List<Task>> tasks = new LinkedHashMap<>();
-    public static int nextId = 0;
+    private static final TaskState INSTANCE = new TaskState();
 
-    public static long nextId() {
-        return ++nextId;
+    private final Map<String, TaskList> tasks = new LinkedHashMap<>();
+
+    private TaskState() {}
+
+    public static TaskState getInstance() {
+        return INSTANCE;
+    }
+
+    public Map<String, TaskList> getTasks() {
+        return tasks;
     }
 }

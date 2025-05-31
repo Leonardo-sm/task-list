@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
-public @interface Commands {
-    String name() default "";
+public @interface Command {
+    String name();
     String description() default "";
 }

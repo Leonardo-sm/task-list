@@ -1,18 +1,12 @@
 package org.example.commands;
 
-import org.example.core.annotations.Commands;
-import org.example.core.domain.Task;
-import org.example.core.Command;
-import org.example.core.TaskState;
+import org.example.core.domain.CommandBase;
+import org.example.core.domain.TaskList;
 
-import java.util.ArrayList;
-import java.util.List;
-
-@Commands
-public class AddCommand implements Command {
+public class AddICommand extends CommandBase {
     private final String[] args;
 
-    public AddCommand(String params) {
+    public AddICommand(String params) {
         this.args = params.split(" ", 3);
     }
 
@@ -34,17 +28,17 @@ public class AddCommand implements Command {
     }
 
     private void addProject(String name) {
-        TaskState.tasks.putIfAbsent(name, new ArrayList<Task>());
+        taskState().getTasks().putIfAbsent(name, new TaskList());
     }
 
     private void addTask(String project, String description) {
-        List<Task> projectTasks = TaskState.tasks.get(project);
+        var projectTasks = taskState().getTasks().get(project);
 
         if (projectTasks == null) {
             System.out.printf("Could not find a project with the name \"%s\".", project);
             System.out.println();
             return;
         }
-        projectTasks.add(new Task(TaskState.nextId(), description, false));
+        projectTasks.addTask(description);
     }
 }

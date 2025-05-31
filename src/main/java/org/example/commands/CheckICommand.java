@@ -1,16 +1,15 @@
 package org.example.commands;
 
+import org.example.core.domain.CommandBase;
 import org.example.core.domain.Task;
-import org.example.core.Command;
-import org.example.core.TaskState;
+import org.example.core.domain.TaskList;
 
-import java.util.List;
 import java.util.Map;
 
-public class CheckCommand implements Command {
+public class CheckICommand extends CommandBase {
     private String id;
 
-    public CheckCommand(String id) {
+    public CheckICommand(String id) {
         this.id = id;
     }
 
@@ -21,7 +20,7 @@ public class CheckCommand implements Command {
 
     private void setDone(String idString) {
         int id = Integer.parseInt(idString);
-        for (Map.Entry<String, List<Task>> project : TaskState.tasks.entrySet()) {
+        for (Map.Entry<String, TaskList> project : taskState().getTasks().entrySet()) {
             for (Task task : project.getValue()) {
                 if (task.getId() == id) {
                     task.setDone(!task.isDone());
