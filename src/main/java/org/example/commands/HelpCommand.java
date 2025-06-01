@@ -1,8 +1,10 @@
 package org.example.commands;
 
+import org.example.core.annotations.Command;
 import org.example.core.domain.CommandBase;
 
-public class HelpICommand extends CommandBase {
+@Command(name = "help")
+public class HelpCommand extends CommandBase {
     @Override
     public void execute() {
         System.out.println("Commands:");

@@ -1,12 +1,14 @@
 package org.example.commands;
 
+import org.example.core.annotations.Command;
 import org.example.core.domain.CommandBase;
 import org.example.core.domain.Task;
 import org.example.core.domain.TaskList;
 
 import java.util.Map;
 
-public class ShowICommand extends CommandBase {
+@Command(name = "show")
+public class ShowCommand extends CommandBase {
     @Override
     public void execute() {
         for (Map.Entry<String, TaskList> project : taskState().getTasks().entrySet()) {

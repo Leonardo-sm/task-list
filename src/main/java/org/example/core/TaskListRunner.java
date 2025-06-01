@@ -1,5 +1,7 @@
 package org.example.core;
 
+import org.example.core.annotations.Command;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -28,11 +30,13 @@ public class TaskListRunner {
         String[] commandRest = commandLine.split(" ", 2);
         String command = commandRest[0];
 
-        if (commandRest.length > 1) {
-            CommandExecutor.run(command, commandRest[1]);
-        } else {
-            CommandExecutor.run(command);
-        }
+        var commands = CommandScanner.findCommandsClasses("org.example.commands", Command.class);
+        CommandRegistry commandRegistry = new CommandRegistry(commands);
 
+        if (commandRest.length > 1) {
+            CommandExecutor.run(commandRegistry, command, commandRest[1]);
+        } else {
+            CommandExecutor.run(commandRegistry, command);
+        }
     }
 }

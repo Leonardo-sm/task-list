@@ -6,8 +6,8 @@ import org.example.helpers.ErrorMessage;
 import java.util.List;
 
 public class CommandExecutor {
-    public static void run(String commandName, String... args) {
-        CommandPallet.fromName(commandName)
+    public static void run(CommandRegistry commands, String commandName, String... args) {
+        commands.getCommand(commandName)
                 .flatMap(cmdEnum -> CommandFactory.createCommand(cmdEnum, List.of(args)))
                 .ifPresentOrElse(
                         ICommand::execute,

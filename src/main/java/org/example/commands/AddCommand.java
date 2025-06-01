@@ -1,12 +1,14 @@
 package org.example.commands;
 
+import org.example.core.annotations.Command;
 import org.example.core.domain.CommandBase;
 import org.example.core.domain.TaskList;
 
-public class AddICommand extends CommandBase {
+@Command(name = "add")
+public class AddCommand extends CommandBase {
     private final String[] args;
 
-    public AddICommand(String params) {
+    public AddCommand(String params) {
         this.args = params.split(" ", 3);
     }
 

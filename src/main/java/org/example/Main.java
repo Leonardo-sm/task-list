@@ -17,16 +17,6 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter writer = new PrintWriter(System.out);
 
-//        List<Class<?>> commands = CommandScanner.findCommandsClasses("org.example.commands", Command.class);
-
-        CommandRegistry.initialize("org.example.commands");
-//        CommandFactory.create("help", List.of())
-//                .ifPresent(ICommand::execute);
-
-//        for (var cmd : commands) {
-//            System.out.println("Classe anotada encontrada: " + cmd.getName());
-//        }
-
         TaskListRunner.run(reader, writer);
     }
 }

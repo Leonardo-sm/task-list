@@ -7,8 +7,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class CommandFactory {
-    public static Optional<ICommand> createCommand(CommandPallet cmdEnum, List<String> args) {
-        return Arrays.stream(cmdEnum.getCommandClass().getConstructors())
+    public static Optional<ICommand> createCommand(Class<? extends ICommand> cmdEnum, List<String> args) {
+        return Arrays.stream(cmdEnum.getConstructors())
                 .filter(ctor -> ctor.getParameterCount() == args.size())
                 .filter(ctor -> Arrays.stream(ctor.getParameterTypes()).allMatch(t -> t == String.class))
                 .findFirst()

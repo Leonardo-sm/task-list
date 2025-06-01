@@ -1,15 +1,17 @@
 package org.example.commands;
 
+import org.example.core.annotations.Command;
 import org.example.core.domain.CommandBase;
 import org.example.core.domain.Task;
 import org.example.core.domain.TaskList;
 
 import java.util.Map;
 
-public class CheckICommand extends CommandBase {
+@Command(name = "check")
+public class CheckCommand extends CommandBase {
     private String id;
 
-    public CheckICommand(String id) {
+    public CheckCommand(String id) {
         this.id = id;
     }
 

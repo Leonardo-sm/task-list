@@ -1,5 +1,7 @@
 package org.example.core;
 
+import org.example.core.domain.ICommand;
+
 import java.io.File;
 import java.lang.annotation.Annotation;
 import java.net.URL;
@@ -29,7 +31,7 @@ public class CommandScanner {
                 String className = file.getName().replace(".class", "");
                 Class<?> clazz = Class.forName(packageName + "." + className);
 
-                if (clazz.isAnnotationPresent(annotation)) {
+                if (clazz.isAnnotationPresent(annotation) && ICommand.class.isAssignableFrom(clazz)) {
                     result.add(clazz);
                 }
             }
