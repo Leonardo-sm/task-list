@@ -51,11 +51,11 @@ public final class TaskList implements Runnable {
         String[] commandRest = commandLine.split(" ", 2);
         String command = commandRest[0];
 
-        if (commandRest.length > 1) {
-            CommandExecutor.run(command, commandRest[1]);
-        } else {
-            CommandExecutor.run(command);
-        }
+//        if (commandRest.length > 1) {
+//            CommandExecutor.run(command, commandRest[1]);
+//        } else {
+//            CommandExecutor.run(command);
+//        }
 
         //        switch (command) {
 //            case "show":

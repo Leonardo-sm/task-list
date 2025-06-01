@@ -7,7 +7,7 @@ import org.example.core.domain.TaskList;
 
 import java.util.Map;
 
-@Command(name = "show")
+@Command(name = "show", description = "Show all projects and tasks")
 public class ShowCommand extends CommandBase {
     @Override
     public void execute() {

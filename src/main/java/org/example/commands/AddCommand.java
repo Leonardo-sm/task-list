@@ -4,7 +4,7 @@ import org.example.core.annotations.Command;
 import org.example.core.domain.CommandBase;
 import org.example.core.domain.TaskList;
 
-@Command(name = "add")
+@Command(name = "add", description = "project <project name> / add task <project name> <task description>")
 public class AddCommand extends CommandBase {
     private final String[] args;
 

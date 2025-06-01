@@ -7,7 +7,7 @@ import org.example.core.domain.TaskList;
 
 import java.util.Map;
 
-@Command(name = "check")
+@Command(name = "check", description = "check <task ID>")
 public class CheckCommand extends CommandBase {
     private String id;
 
