@@ -6,6 +6,7 @@ import java.io.PipedOutputStream;
 import java.io.PrintWriter;
 
 import org.example.TaskList;
+import org.example.core.TaskApplicationRun;
 import org.example.core.TaskListRunner;
 import org.junit.After;
 import org.junit.Before;
@@ -30,7 +31,10 @@ public final class ApplicationTest {
         PrintWriter out = new PrintWriter(new PipedOutputStream(outStream), true);
 //        TaskList taskList = new TaskList(in, out);
 //        applicationThread = new Thread(taskList);
-        applicationThread = new Thread(TaskListRunner.run(in, out));
+//        applicationThread = new Thread(TaskListRunner.run(in, out));
+        TaskApplicationRun taskApplicationRun = new TaskApplicationRun(in, out);
+
+        applicationThread = new Thread(taskApplicationRun);
     }
 
     @Before public void

@@ -9,7 +9,7 @@ import java.util.Map;
 
 @Command(name = "check", description = "check <task ID>")
 public class CheckCommand extends CommandBase {
-    private String id;
+    private final String id;
 
     public CheckCommand(String id) {
         this.id = id;
@@ -25,7 +25,7 @@ public class CheckCommand extends CommandBase {
         for (Map.Entry<String, TaskList> project : taskState().getTasks().entrySet()) {
             for (Task task : project.getValue()) {
                 if (task.getId() == id) {
-                    task.setDone(!task.isDone());
+                    task.setDone(Boolean.TRUE);
                     return;
                 }
             }
