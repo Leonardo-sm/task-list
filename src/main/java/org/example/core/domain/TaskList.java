@@ -1,16 +1,15 @@
 package org.example.core.domain;
 
-
 import java.util.ArrayList;
 
 public class TaskList extends ArrayList<Task> {
-    private int nextId = 0;
+    private static int nextId = 0;
 
     public void addTask(String description) {
-        super.add(new Task(nextId(), description, false));
+        super.add(new Task(getNextId(), description, false));
     }
 
-    private int nextId() {
+    private static int getNextId() {
         return ++nextId;
     }
 }
