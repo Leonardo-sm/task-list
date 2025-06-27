@@ -11,9 +11,9 @@ public class HelpCommand extends CommandBase {
         CommandRegistry commandRegistry = new CommandRegistry();
         var commandsInfo = commandRegistry.getCommandInfo();
 
-        System.out.println("Available Commands:");
+        console().getWriter().println("Available Commands:");
         for (var info : commandsInfo.entrySet()) {
-           System.out.printf(" %-5s - %s%n", info.getKey(), info.getValue());
+           console().getWriter().printf(" %-5s - %s%n", info.getKey(), info.getValue());
         }
     }
 }

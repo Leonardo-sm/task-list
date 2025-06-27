@@ -11,7 +11,7 @@ public class CommandExecutor {
                 .flatMap(cmdEnum -> CommandFactory.createCommand(cmdEnum, List.of(args)))
                 .ifPresentOrElse(
                         ICommand::execute,
-                        () -> System.out.print(ErrorMessage.getMessage(commandName, args))
+                        () -> ConsoleContext.getInstance().getWriter().println(ErrorMessage.getMessage(commandName, args))
                 );
     }
 }

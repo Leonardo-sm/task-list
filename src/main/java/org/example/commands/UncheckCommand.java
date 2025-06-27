@@ -30,7 +30,7 @@ public class UncheckCommand extends CommandBase {
                 }
             }
         }
-        System.out.printf("Could not find a task with an ID of %d.", id);
-        System.out.println();
+        console().getWriter().printf("Could not find a task with an ID of %d.", id);
+        console().getWriter().println("");
     }
 }

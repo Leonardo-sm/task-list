@@ -12,11 +12,11 @@ public class ShowCommand extends CommandBase {
     @Override
     public void execute() {
         for (Map.Entry<String, TaskList> project : taskState().getTasks().entrySet()) {
-            System.out.println(project.getKey());
+            console().getWriter().println(project.getKey());
             for (Task task : project.getValue()) {
-                System.out.printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
+                console().getWriter().printf("    [%c] %d: %s%n", (task.isDone() ? 'x' : ' '), task.getId(), task.getDescription());
             }
-            System.out.println();
+            console().getWriter().println("");
         }
     }
 }

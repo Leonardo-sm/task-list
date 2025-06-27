@@ -20,12 +20,12 @@ public class AddCommand extends CommandBase {
             case "project" -> addProject(args[1]);
             case "task" -> {
                 if (args.length < 3) {
-                    System.out.println("Usage: add task <project> <description>");
+                    console().getWriter().println("Usage: add task <project> <description>");
                     return;
                 }
                 addTask(args[1], args[2]);
             }
-            default -> System.out.println("Unknown subcommand: " + sub);
+            default -> console().getWriter().println("Unknown subcommand: " + sub);
         }
     }
 
@@ -37,8 +37,8 @@ public class AddCommand extends CommandBase {
         var projectTasks = taskState().getTasks().get(project);
 
         if (projectTasks == null) {
-            System.out.printf("Could not find a project with the name \"%s\".", project);
-            System.out.println();
+            console().getWriter().printf("Could not find a project with the name \"%s\".", project);
+            console().getWriter().println("");
             return;
         }
         projectTasks.addTask(description);

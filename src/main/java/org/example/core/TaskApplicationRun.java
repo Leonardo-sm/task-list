@@ -16,6 +16,8 @@ public class TaskApplicationRun implements Runnable {
     }
 
     public void run() {
+        ConsoleContext.initialize(reader, writer);
+        
         while (true) {
             writer.print("> ");
             writer.flush();
