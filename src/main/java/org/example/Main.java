@@ -1,6 +1,6 @@
 package org.example;
 
-import org.example.core.TaskListRunner;
+import org.example.core.TaskApplicationRun;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,6 +11,8 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter writer = new PrintWriter(System.out);
 
-        TaskListRunner.run(reader, writer);
+        TaskApplicationRun taskApplicationRun = new TaskApplicationRun(reader, writer);
+
+        taskApplicationRun.run();
     }
 }
